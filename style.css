@@ -195,43 +195,53 @@ dialog {
 }
 
 .flows.flow > div:first-child {
-  transition: transform 2.5s ease-in;
+  --flowDuration: calc(var(--flowDurationRandom, 4) * 1s);
+  transition: transform var(--flowDuration) var(--flowTiming, ease-out);
 }
 
 .flows.flow > div:nth-child(2) {
-  transition: transform 5s ease-in-out;
+  --flowDuration: calc(var(--flowDurationRandom, 4) * 1s);
+  transition: transform var(--flowDuration) var(--flowTiming, ease-out);
 }
 
 .flows.flow > div:nth-child(3) {
-  transition: transform 2s ease-in;
+  --flowDuration: calc(var(--flowDurationRandom, 4) * 1s);
+  transition: transform var(--flowDuration) var(--flowTiming, ease-out);
 }
 
 .flows.flow > div:nth-child(4) {
-  transition: transform 4s ease-in;
+  --flowDuration: calc(var(--flowDurationRandom, 4) * 1s);
+  transition: transform var(--flowDuration) var(--flowTiming, ease-out);
 }
 
 .flows.flow > div:nth-child(5) {
-  transition: transform 4.25s ease;
+  --flowDuration: calc(var(--flowDurationRandom, 4) * 1s);
+  transition: transform var(--flowDuration) var(--flowTiming, ease-out);
 }
 
 .flows.flow > div:nth-child(6) {
-  transition: transform 1s ease-out;
+  --flowDuration: calc(var(--flowDurationRandom, 4) * 1s);
+  transition: transform var(--flowDuration) var(--flowTiming, ease-out);
 }
 
 .flows.flow > div:nth-child(7) {
-  transition: transform 3s ease-in;
+  --flowDuration: calc(var(--flowDurationRandom, 4) * 1s);
+  transition: transform var(--flowDuration) var(--flowTiming, ease-out);
 }
 
 .flows.flow > div:nth-child(8) {
-  transition: transform 4.5s ease;
+  --flowDuration: calc(var(--flowDurationRandom, 4) * 1s);
+  transition: transform var(--flowDuration) var(--flowTiming, ease-out);
 }
 
 .flows.flow > div:nth-child(9) {
-  transition: transform 4.75s ease;
+  --flowDuration: calc(var(--flowDurationRandom, 4) * 1s);
+  transition: transform var(--flowDuration) var(--flowTiming, ease-out);
 }
 
 .flows.flow > div:last-child {
-  transition: transform 1.5s ease-out;
+  --flowDuration: calc(var(--flowDurationRandom, 4) * 1s);
+  transition: transform var(--flowDuration) var(--flowTiming, ease-out);
 }
 
 .icon-fall {

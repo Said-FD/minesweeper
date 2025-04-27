@@ -107,7 +107,7 @@ const removeFlowAnimation = () => {
     setTimeout(() => {
       flowsContainer.classList.remove('flow')
       flowsContainer.classList.remove('flush')
-    }, 2000)
+    }, 1500)
   }
 }
 
@@ -126,6 +126,8 @@ const showDialog = (type, delay) => {
   setTimeout(() => dialog.showModal(), delay ?? 750)
 }
 
+const getRandomItemFromArray = items => items[Math.floor(Math.random() * items.length)]
+
 const checkIfWin = () => {
   openCellsCount++
   if (openCellsCount === cellsToOpenNumber) {
@@ -136,11 +138,11 @@ const checkIfWin = () => {
     function createFallingIcon() {
       const iconElement = document.createElement('div')
       iconElement.classList.add('icon-fall')
-      iconElement.textContent = icons[Math.floor(Math.random() * icons.length)]
+      iconElement.textContent = getRandomItemFromArray(icons)
       flowsContainer.appendChild(iconElement)
 
       const startX = Math.random() * window.innerWidth
-      const duration = Math.random() * 3 + 2
+      const duration = (Math.random() * 3 + 2).toFixed(2)
       const size = Math.random() * 20 + 60
 
       iconElement.style.left = `${startX}px`
@@ -220,8 +222,14 @@ const handleLeftMouseClick = cellCover => {
   }
   if (currentCell.textContent === '💩') {
     const flowsContainer = document.querySelector('.flows')
+    Array.from(flowsContainer.children).forEach(flow => {
+      const duration = (Math.random() * 5 + 1).toFixed(2)
+      const timingFunctions = ['linear', 'ease', 'ease-in', 'ease-out', 'ease-in-out']
+      const timing = getRandomItemFromArray(timingFunctions)
+      flow.setAttribute('style', `--flowDurationRandom: ${duration}; --flowTiming: ${timing}`)
+    })
     flowsContainer.classList.add('flow')
-    showDialog('restart', 2000)
+    showDialog('restart', 1000)
   }
 
   cellCover.remove()
