@@ -191,56 +191,8 @@ dialog {
 }
 
 .flows.flow > div {
+  --flowDuration: calc(var(--flowDurationRandom, 4) * 1s);
   transform: scale(1.5) translateY(0);
-}
-
-.flows.flow > div:first-child {
-  --flowDuration: calc(var(--flowDurationRandom, 4) * 1s);
-  transition: transform var(--flowDuration) var(--flowTiming, ease-out);
-}
-
-.flows.flow > div:nth-child(2) {
-  --flowDuration: calc(var(--flowDurationRandom, 4) * 1s);
-  transition: transform var(--flowDuration) var(--flowTiming, ease-out);
-}
-
-.flows.flow > div:nth-child(3) {
-  --flowDuration: calc(var(--flowDurationRandom, 4) * 1s);
-  transition: transform var(--flowDuration) var(--flowTiming, ease-out);
-}
-
-.flows.flow > div:nth-child(4) {
-  --flowDuration: calc(var(--flowDurationRandom, 4) * 1s);
-  transition: transform var(--flowDuration) var(--flowTiming, ease-out);
-}
-
-.flows.flow > div:nth-child(5) {
-  --flowDuration: calc(var(--flowDurationRandom, 4) * 1s);
-  transition: transform var(--flowDuration) var(--flowTiming, ease-out);
-}
-
-.flows.flow > div:nth-child(6) {
-  --flowDuration: calc(var(--flowDurationRandom, 4) * 1s);
-  transition: transform var(--flowDuration) var(--flowTiming, ease-out);
-}
-
-.flows.flow > div:nth-child(7) {
-  --flowDuration: calc(var(--flowDurationRandom, 4) * 1s);
-  transition: transform var(--flowDuration) var(--flowTiming, ease-out);
-}
-
-.flows.flow > div:nth-child(8) {
-  --flowDuration: calc(var(--flowDurationRandom, 4) * 1s);
-  transition: transform var(--flowDuration) var(--flowTiming, ease-out);
-}
-
-.flows.flow > div:nth-child(9) {
-  --flowDuration: calc(var(--flowDurationRandom, 4) * 1s);
-  transition: transform var(--flowDuration) var(--flowTiming, ease-out);
-}
-
-.flows.flow > div:last-child {
-  --flowDuration: calc(var(--flowDurationRandom, 4) * 1s);
   transition: transform var(--flowDuration) var(--flowTiming, ease-out);
 }
 
