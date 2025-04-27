@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>💩🧻 PoopSweeper</title>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <h1>Let's clean some shit 🤪</h1>
+    </header>
+    <main class="main">
+      <button type="button" class="menu-button">
+        Settings
+      </button>
+      <div class="grid-container"></div>
+      <div class="flows-container">
+        <div class="flows">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <dialog class="menu-dialog">
+    <header class="dialog-header">
+      <h2>Select pooppiculty</h2>
+      <button type="button" class="dialog-close-button">
+        Close
+      </button>
+    </header>
+    <div class="button-group">
+      <button type="button" class="level-button">
+        Just a few poops
+      </button>
+      <button type="button" class="level-button">
+        A few poops more, please
+      </button>
+      <button type="button" class="level-button">
+        Plenty of poops
+      </button>
+      <button type="button" class="level-button">
+        Full of shit
+      </button>
+    </div>
+  </dialog>
+
+  <dialog class="restart-dialog">
+    <header class="dialog-header">
+      <h2>Oh shit 💩</h2>
+      <button type="button" class="dialog-close-button">
+        Close
+      </button>
+    </header>
+    <div class="button-group">
+      <button type="button" class="restart-button">
+        Start a new game
+      </button>
+    </div>
+  </dialog>
+
+  <dialog class="win-dialog">
+    <header class="dialog-header">
+      <h2>Huyaa! No poops left 🧻</h2>
+      <button type="button" class="dialog-close-button">
+        Close
+      </button>
+    </header>
+    <div class="button-group">
+      <button type="button" class="restart-button">
+        Start a new game
+      </button>
+    </div>
+  </dialog>
+  <script src="script.js"></script>
+</body>
+</html>
