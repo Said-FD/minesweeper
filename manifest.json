@@ -1,0 +1,24 @@
+{
+  "default_locale": "en",
+  "name": "Minesweeper Game",
+  "short_name": "Minesweeper",
+  "version": "1.0.0",
+  "description": "Alternative Minesweeper Game",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "lightcyan",
+  "background_color": "#eee",
+  "icons": [
+    {
+      "src": "favicon/3D-Poop-Emoji-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "favicon/3D-Poop-Emoji-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
