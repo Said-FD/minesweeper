@@ -17,8 +17,11 @@
       <h1>Let's clean some shit 🤪</h1>
     </header>
     <main class="main">
+      <button type="button" class="auth-button">
+        My Profile
+      </button>
       <button type="button" class="menu-button">
-        Settings
+        Game Settings
       </button>
       <div class="grid-container"></div>
       <div class="flows-container">
@@ -37,6 +40,42 @@
       </div>
     </main>
   </div>
+
+  <dialog class="auth-dialog">
+    <header class="dialog-header">
+      <button type="button" class="dialog-close-button">
+        Close
+      </button>
+    </header>
+    <form method="dialog" class="form">
+      <fieldset>
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email" required>
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password" required>
+      </fieldset>
+      <div class="button-group">
+        <button type="submit" class="login-button">
+          Log In
+        </button>
+        <p class="or-divider">OR</p>
+        <button type="submit" class="signup-button">
+          Sign Up
+        </button>
+      </div>
+      <p class="error-message">
+        <em>Email or password is incorrect</em>
+      </p>
+    </form>
+    <div class="button-group signout-button-group hidden">
+      <button type="button" class="signout-button">
+        Sign Out
+      </button>
+      <p class="error-message">
+        <em>Something went wrong...</em>
+      </p>
+    </div>
+  </dialog>
 
   <dialog class="menu-dialog">
     <header class="dialog-header">
@@ -88,13 +127,18 @@
       </button>
     </div>
   </dialog>
-  <script src="script.js"></script>
-  <script>
+
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="script/globals.js"></script>
+  <script src="script/stats.js"></script>
+  <script src="script/auth.js"></script>
+  <script src="script/game.js"></script>
+  <!-- <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('service-worker.js')
       })
     }
-  </script>
+  </script> -->
 </body>
 </html>

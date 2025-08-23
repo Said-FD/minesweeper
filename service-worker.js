@@ -1,5 +1,13 @@
 const CACHE_NAME = 'cache-v1'
-const CACHE_URLS = ['/', '/index.html', '/style.css', '/script.js']
+const CACHE_URLS = [
+  '/',
+  '/index.html',
+  '/style.css',
+  '/script/globals.js',
+  '/script/stats.js',
+  '/script/auth.js',
+  '/script/game.js'
+]
 
 self.addEventListener('install', event => {
   event.waitUntil(

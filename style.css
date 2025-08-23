@@ -12,6 +12,7 @@ body {
   --cellCoverColor: lightcyan;
   --cellCoverPoopMarkColor: lightcoral;
   --cellCoverQuestionMarkColor: lightgreen;
+  --errorTextColor: red;
 
 	margin: 0;
 	font-family: 'Rubik Mono One', monospace;
@@ -34,6 +35,7 @@ button {
 	padding: 0;
 	cursor: pointer;
 	font: inherit;
+  font-size: .75rem;
 	background-color: transparent;
 	border: none;
 }
@@ -42,6 +44,26 @@ dialog {
   width: 360px;
   padding-inline: 2rem;
   border: var(--menuBorder);
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border: none;
+}
+
+label {
+  padding-block: 1rem .125rem;
+  font-size: .75rem;
+}
+
+input {
+  width: 100%;
+  max-width: 100%;
+  height: 2.5rem;
+  padding-inline: .5rem;
+  font-size: 1.25rem;
 }
 
 .page {
@@ -63,12 +85,30 @@ dialog {
   flex-direction: column;
 }
 
+.auth-button,
 .menu-button {
   z-index: 2;
   display: block;
   margin-inline-start: auto;
   padding: .75rem;
-  font-size: .75rem;
+}
+
+.form.hidden,
+.button-group.hidden {
+  display: none;
+}
+
+.error-message {
+  position: absolute;
+  bottom: 0;
+  left: initial;
+  display: none;
+  font-size: .7rem;
+  color: var(--errorTextColor);
+}
+
+.auth-error .error-message {
+  display: block;
 }
 
 .dialog-header {
@@ -83,7 +123,6 @@ dialog {
   top: -0.75rem;
   right: -1.75rem;
   padding: .25rem;
-  font-size: .75rem;
   font-weight: 100;
 }
 
@@ -96,7 +135,6 @@ dialog {
 
 .button-group button {
   padding: .75rem;
-  font-size: .75rem;
   background-color: var(--cellCoverQuestionMarkColor);
   border: var(--menuBorder);
   transition: transform .2s, box-shadow .3s;
@@ -106,6 +144,12 @@ dialog {
 .button-group button:focus-visible {
   transform: translateY(-2px);
   box-shadow: 0 2px 8px 2px lightcoral;
+}
+
+.or-divider {
+  align-self: center;
+  margin: 0;
+  font-size: .75rem;
 }
 
 .grid-container,
@@ -144,6 +188,7 @@ dialog {
 @media (width < 640px) {
   .cell {
     width: 40px;
+    font-size: 1.25rem;
   }
 }
 

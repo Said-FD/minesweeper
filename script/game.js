@@ -11,6 +11,7 @@ const mine = 'mine'
 const minesNumberMap = { 8: 9, 12: 15, 16: 40, 30: 60 }
 const cellSizeMap = { 8: '74px', 12: '54px', 16: '40px' }
 const levels = { 0: [8, 8], 1: [12, 12], 2: [16, 16], 3: [16, 30] }
+
 let openCellsCount = 0
 let cellsToOpenNumber = levels[0][0] * levels[0][1] - minesNumberMap[8]
 let fallingIconsInterval
@@ -269,20 +270,23 @@ const handleCellClick = event => {
 	if (!cellCover.closest('.cell-cover')) return
   if (event.button === 0 && !cellCover.dataset.coverState) handleLeftMouseClick(cellCover)
 	if (event.button === 2) handleRightMouseClick(cellCover)
+
+  clickCount++
+  if (clickCount === 1) sendGameStarted()
 }
 
 const startGame = (rowsNum, columnsNum) => {
   if (!rowsNum || !columnsNum) {
-    const boardSize = localStorage.getItem('boardSize')
+    const boardSize = getLsItem(LS_BOARD_SIZE_KEY)
     if (boardSize) {
-      const sizes = JSON.parse(boardSize)
-      rowsNum = sizes.rowsNum
-      columnsNum = sizes.columnsNum
+      rowsNum = boardSize.rowsNum
+      columnsNum = boardSize.columnsNum
     } else {
       rowsNum = columnsNum = 8
     }
   }
-  localStorage.setItem('boardSize', JSON.stringify({ rowsNum, columnsNum }))
+  setLsItem(LS_BOARD_SIZE_KEY, { rowsNum, columnsNum })
+  clickCount = 0
   openCellsCount = 0
   cellsToOpenNumber = rowsNum * columnsNum - minesNumberMap[columnsNum]
   const grid = generateLinkedGrid(rowsNum, columnsNum)
@@ -296,8 +300,6 @@ const startGame = (rowsNum, columnsNum) => {
   cellsList.forEach(cell => cell.addEventListener('mouseup', handleCellClick))
   document.querySelector('.grid').style.setProperty('--cell-size', cellSizeMap[rowsNum])
 }
-
-startGame()
 
 const menuButton = document.querySelector('.menu-button')
 const menuDialog = document.querySelector('.menu-dialog')
@@ -316,3 +318,5 @@ const levelButtons = menuDialog.querySelectorAll('.level-button')
 levelButtons.forEach((button, index) => {
   button.addEventListener('click', () => restartGame(levels[index]))
 })
+
+startGame()
