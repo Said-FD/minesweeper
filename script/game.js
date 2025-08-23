@@ -116,6 +116,7 @@ const showDialog = (type, delay) => {
   const dialog = document.querySelector(`.${type}-dialog`)
   const dialogCloseButton = dialog.querySelector('.dialog-close-button')
   const restartGameButton = dialog.querySelector('.restart-button')
+
   dialogCloseButton.addEventListener('click', () => {
     removeFlowAnimation()
     dialog.close()
@@ -124,7 +125,9 @@ const showDialog = (type, delay) => {
     restartGame([])
     dialog.close()
   })
+
   setTimeout(() => dialog.showModal(), delay ?? 750)
+  updateStatsOnFinish(type)
 }
 
 const getRandomItemFromArray = items => items[Math.floor(Math.random() * items.length)]
@@ -157,7 +160,7 @@ const checkIfWin = () => {
       if (flowsContainer.childElementCount < iconsNumber) createFallingIcon()
     }, 500)
 
-    showDialog('win')
+    showDialog(WIN_TYPE)
   }
 }
 
@@ -230,7 +233,7 @@ const handleLeftMouseClick = cellCover => {
       flow.setAttribute('style', `--flowDurationRandom: ${duration}; --flowTiming: ${timing}`)
     })
     flowsContainer.classList.add('flow')
-    showDialog('restart', 1000)
+    showDialog(LOSE_TYPE, 1000)
   }
 
   cellCover.remove()
