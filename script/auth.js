@@ -112,6 +112,3 @@ signoutButton.addEventListener('click', async () => {
   const { error } = await supabaseClient.auth.signOut()
   handleAuthError(error)
 })
-
-// authDialog.showModal()
-// logIn('frontendmax.pl@gmail.com', 'TEST_Account#12345')
