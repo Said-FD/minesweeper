@@ -71,34 +71,34 @@ const calculateHints = head => {
 }
 
 const renderBoard = rows => {
-	const gridContainer = document.querySelector('.grid-container')
+  const gridContainer = document.querySelector('.grid-container')
   const gridElement = document.createElement('div')
   gridElement.className = 'grid'
   gridContainer.appendChild(gridElement)
 
-	rows.forEach((row, i) => {
-		const rowElement = document.createElement('div')
-		rowElement.className = 'row'
-		rowElement.dataset.index = i
+  rows.forEach((row, i) => {
+    const rowElement = document.createElement('div')
+    rowElement.className = 'row'
+    rowElement.dataset.index = i
 
-		row.forEach(cell => {
-			const getCellContent = () => {
-				if (cell === 0) return ''
-				if (cell === mine) return '💩'
-				return cell
-			}
+    row.forEach(cell => {
+      const getCellContent = () => {
+        if (cell === 0) return ''
+        if (cell === mine) return '💩'
+        return cell
+      }
 
-			const cellElement = document.createElement('button')
-			const cellCoverElement = document.createElement('span')
-			cellElement.className = 'cell'
-			cellElement.setAttribute('type', 'button')
-			cellElement.textContent = getCellContent()
-			cellCoverElement.className = 'cell-cover'
-			cellElement.appendChild(cellCoverElement)
-			rowElement.appendChild(cellElement)
-		})
+      const cellElement = document.createElement('button')
+      const cellCoverElement = document.createElement('span')
+      cellElement.className = 'cell'
+      cellElement.setAttribute('type', 'button')
+      cellElement.textContent = getCellContent()
+      cellCoverElement.className = 'cell-cover'
+      cellElement.appendChild(cellCoverElement)
+      rowElement.appendChild(cellElement)
+    })
     gridElement.appendChild(rowElement)
-	})
+  })
 }
 
 const removeFlowAnimation = () => {
@@ -139,7 +139,7 @@ const checkIfWin = () => {
     const iconsNumber = 25
     const icons = ['🧻', '🌟', '💩', '✨', '🧻', '🌟', '💩', '✨']
 
-    function createFallingIcon() {
+    const createFallingIcon = () => {
       const iconElement = document.createElement('div')
       iconElement.classList.add('icon-fall')
       iconElement.textContent = getRandomItemFromArray(icons)
@@ -242,37 +242,37 @@ const handleLeftMouseClick = cellCover => {
 }
 
 const handleRightMouseClick = cellCover => {
-	switch (cellCover.dataset.coverState) {
-		case 'poop-mark':
-			cellCover.textContent = '🤷'
-			cellCover.classList.add('cover-question-mark')
-			cellCover.classList.remove('cover-poop-mark')
-			cellCover.dataset.coverState = 'question-mark'
-			break
-		case 'question-mark':
-			cellCover.textContent = ''
-			cellCover.classList.remove('cover-poop-mark', 'cover-question-mark')
-			delete cellCover.dataset.coverState
-			break
-		default:
-			cellCover.textContent = '🧻'
-			cellCover.classList.add('cover-poop-mark')
-			cellCover.classList.remove('cover-question-mark')
-			cellCover.dataset.coverState = 'poop-mark'
-	}
+  switch (cellCover.dataset.coverState) {
+    case 'poop-mark':
+      cellCover.textContent = '🤷'
+      cellCover.classList.add('cover-question-mark')
+      cellCover.classList.remove('cover-poop-mark')
+      cellCover.dataset.coverState = 'question-mark'
+      break
+    case 'question-mark':
+      cellCover.textContent = ''
+      cellCover.classList.remove('cover-poop-mark', 'cover-question-mark')
+      delete cellCover.dataset.coverState
+      break
+    default:
+      cellCover.textContent = '🧻'
+      cellCover.classList.add('cover-poop-mark')
+      cellCover.classList.remove('cover-question-mark')
+      cellCover.dataset.coverState = 'poop-mark'
+  }
 }
 
 const handleCellClick = event => {
-	const cellCover = event.target
-	cellCover.oncontextmenu = () => {
-		event.preventDefault()
-		event.stopPropagation()
-		return false
-	}
+  const cellCover = event.target
+  cellCover.oncontextmenu = () => {
+    event.preventDefault()
+    event.stopPropagation()
+    return false
+  }
 
-	if (!cellCover.closest('.cell-cover')) return
+  if (!cellCover.closest('.cell-cover')) return
   if (event.button === 0 && !cellCover.dataset.coverState) handleLeftMouseClick(cellCover)
-	if (event.button === 2) handleRightMouseClick(cellCover)
+  if (event.button === 2) handleRightMouseClick(cellCover)
 
   clickCount++
   if (clickCount === 1) sendGameStarted()

@@ -11,8 +11,7 @@ const handleAuthError = error => {
   if (error) {
     authDialog.classList.add('auth-error')
     console.error('Auth Error: ', error)
-  }
-  else {
+  } else {
     authDialog.close()
     authDialog.classList.remove('auth-error')
   }
