@@ -14,8 +14,8 @@ body {
   --cellCoverQuestionMarkColor: lightgreen;
   --errorTextColor: red;
 
-	margin: 0;
-	font-family: 'Rubik Mono One', monospace;
+  margin: 0;
+  font-family: 'Rubik Mono One', monospace;
   background-color: var(--page-bg);
 }
 
@@ -32,12 +32,12 @@ h2 {
 }
 
 button {
-	padding: 0;
-	cursor: pointer;
-	font: inherit;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
   font-size: .75rem;
-	background-color: transparent;
-	border: none;
+  background-color: transparent;
+  border: none;
 }
 
 dialog {
@@ -163,8 +163,8 @@ input {
 .grid-container {
   position: relative;
   flex: 1;
-	flex-direction: column;
-	padding: .75rem 1.25rem;
+  flex-direction: column;
+  padding: .75rem 1.25rem;
 }
 
 .grid,
@@ -173,15 +173,15 @@ input {
 }
 
 .row {
-	display: flex;
+  display: flex;
 }
 
 .cell {
-	position: relative;
-	width: var(--cell-size, 74px);
+  position: relative;
+  width: var(--cell-size, 74px);
   aspect-ratio: 1/1;
   cursor: default;
-	font-size: 1.5rem;
+  font-size: 1.5rem;
   background-color: #fff;
 }
 
@@ -193,19 +193,19 @@ input {
 }
 
 .cell-cover {
-	position: absolute;
-	inset: 0;
-	cursor: pointer;
-	background-color: var(--cellCoverColor);
-	transition: opacity .15s, background-color .15s;
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  background-color: var(--cellCoverColor);
+  transition: opacity .15s, background-color .15s;
 }
 
 .cover-poop-mark {
-	background-color: var(--cellCoverPoopMarkColor);
+  background-color: var(--cellCoverPoopMarkColor);
 }
 
 .cover-question-mark {
-	background-color: var(--cellCoverQuestionMarkColor);
+  background-color: var(--cellCoverQuestionMarkColor);
 }
 
 .flows-container {
